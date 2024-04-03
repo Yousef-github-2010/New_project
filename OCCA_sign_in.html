@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCCA sign in</title>
+    <link rel="icon" type="image/png" href="https://yousef-github-2010.github.io/New_project/OCCA DAYS.png>
+</head>
+<body>
+    <img
+         src="https://yousef-github-2010.github.io/New_project/OCCA DAYS.png"
+         alt="Site logo"
+         height="60"
+         width="60">
+        <a href="https://yousef-github-2010.github.io/New_project/OCCA DAYS.png" download target="_blank">
+            <button>Site Logo</button>
+          </a>
+    <div style="display: block;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color:whitesmoke; 
+    padding-top: 10px; 
+    padding-right: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 10px; 
+    border-style: solid; 
+    border-width: 10px;">
+    <h1 style="display: flex;
+    justify-content: center;
+    align-items: center;">
+    Welcome </h1>
+    
+    <h1 style="display: flex;
+    justify-content: center;
+    align-items: center;">
+     Hi it is ( OCCA DAYS )</h1>
+
+    <h2 style="display: flex;
+    justify-content: center;
+    align-items: center;">
+    it is a website to write a text message and emojis and upload file or photo</h2>
+    </div>
+    <div id="downloadLink"
+    style="display: block;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color:whitesmoke; 
+    padding-top: 10px; 
+    padding-right: 10px; 
+    padding-bottom: 10px; 
+    padding-left: 10px; 
+    border-style: solid; 
+    border-width: 3px;">
+    <h2>for inter to your account </h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">      
+        <label for="phone-gmail">Phone or Gmail:</label>
+        <input type="tel" id="phone" name="phone-gmail">
+        <label for="file-upload" class="custom-file-upload" style="background-color: indigo;color: white;padding: 0.5rem;font-family: sans-serif;border-radius: 0.3rem;cursor: pointer;margin-top: 1rem;">
+            Choose your account photo
+          </label>
+          <input type="file" id="file-upload" name="file-upload" hidden>
+<button 
+            id="button1"
+            type="button" 
+            onclick="alert('True informations , there is a text will appear click it to return to the main page')"
+            style="padding: 10px; margin: 10px;">
+                Submit </button> 
+<a href="https://yousef-github-2010.github.io/New_project/OCCA_signed_in.html">
+                <textarea id="button2" style="display: none;"> Main page</textarea>   
+<script>const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    
+    button1.addEventListener("click", () => {
+      if (button2.style.display === "none") {
+        button2.style.display = "block";
+      } else {
+        button2.style.display = "none";
+      }
+    });
+    </script>
+     </a>
+     <button value="reset">Reset</button>
+</form>
+    </div>
+    <div>
+        <h3> this is the account image : </h3> 
+        <img 
+        id="uploaded-image"
+        src="" 
+        alt="Uploaded image" 
+        style=
+        "width: 200px;
+        height: 200px;
+        margin-top: 1rem;
+        ">
+        <script>
+            const input = document.getElementById('file-upload');
+const image = document.getElementById('uploaded-image');
+
+input.addEventListener('change', () => {
+  if (input.files.length > 0) {
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      image.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+        </script>
+    </div> 
+</body>
+</html>

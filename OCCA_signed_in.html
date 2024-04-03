@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> OCCA DAYS </title>
+    <link rel="icon" type="image/png" href="https://yousef-github-2010.github.io/New_project/OCCA DAYS.png">
+    <label for="colorPicker"> Choose the background-color : </label>
+    <input type="color" id="colorPicker"
+    name="colorPicker">
+</head>
+<body>
+    <div style="border-style : solid;
+    border-width : 1px">
+<a href="https://yousef-github-2010.github.io/New_project/OCCA_image_changer.html">
+<h2>Set an account image</h2>
+    <img src="" 
+alt="user logo"
+height="50px"
+width="50">
+</a>
+    </div>
+        <img
+         src="https://yousef-github-2010.github.io/New_project/OCCA DAYS.html"
+         alt="Site logo"
+         height="60"
+         width="60">
+        <a href="https://yousef-github-2010.github.io/New_project/OCCA DAYS.png" download target="_blank">
+            <button>Site Logo</button>
+          </a>
+        <div style=" display: block;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto; background-color:whitesmoke; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-style: solid; border-width: 10px;">
+            <script>document.getElementById("colorPicker").addEventListener('input',function()
+                { 
+                    document.body.style.backgroundColor= this.value;
+                });
+                    </script>
+            <form>
+            <h1> inter the message that you want to send and write the first name and Second</h1>
+            <label for="fname"> The message :</label>
+            <input type="text" id="textInput" value="" oninput="updateText()">
+            <label for="file-upload" class="custom-file-upload" style="background-color: indigo;color: white;padding: 0.5rem;font-family: sans-serif;border-radius: 0.3rem;cursor: pointer;margin-top: 1rem;">
+                Choose File or photo to upload
+              </label>
+              <input type="file" id="file-upload" name="file-upload" hidden>
+            <button input type="reset" style="padding: 10px; margin: 10px;">Reset</button>
+            <button 
+            type="button" 
+            onclick="alert('Thank you for entered informations in the form')"
+            style="padding: 10px; margin: 10px;">
+                Submit </button>
+            </form>
+        </div>
+        <br>
+        <div id="the_main_div"  display: block;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;>
+        <div style=" display: block;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto; 
+        background-color:whitesmoke; 
+        padding-top: 10px; 
+        padding-right: 10px; 
+        padding-bottom: 10px; 
+        padding-left: 10px; 
+        border-style: solid;
+        border-width: 10px;">
+        <h1>
+            <script>
+            function updateText() {
+                var inputText = document.getElementById("textInput").value;
+                document.getElementById("output").innerText = inputText;
+            }
+        </script>  <div id="output" style=" display: block;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;">
+        <h3>Here your message will appear</h3>
+    </div>
+    <div style=" display: block;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;">
+        <img 
+        id="uploaded-image"
+        src="" 
+        alt="Uploaded image" 
+        style=
+        "width: 300px;
+        height: 300px;
+        margin-top: 1rem;
+        ">
+        <script>
+            const input = document.getElementById('file-upload');
+const image = document.getElementById('uploaded-image');
+
+input.addEventListener('change', () => {
+  if (input.files.length > 0) {
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      image.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+        </script>
+    </div>
+    <div>
+        <script>
+const input1 = document.getElementById("input-1");
+const input2 = document.getElementById("input-2");
+const input3 = document.getElementById("input-3");
+
+input1.addEventListener("input", () => {
+  console.log("Label 1:", input1.value);
+});
+
+input2.addEventListener("input", () => {
+  console.log("Label 2:", input2.value);
+});
+
+input3.addEventListener("input", () => {
+  console.log("Label 3:", input3.value);
+});</script>
+    </div>
+    <button id="MyButton" onclick="myFunction()">Copy Text</button>
+    <div id="myDiv" style=" display: block;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;">
+        <!-- Content to be screenshotted -->
+      </div>
+      <button id="screenshotButton">Take Screenshot</button>
+      <canvas id="canvas" style="display: none;"></canvas>
+      <script>
+        function takeScreenshot() {
+  const div = document.getElementById("the_main_div");
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = div.offsetWidth;
+  canvas.height = div.offsetHeight;
+
+  ctx.drawWindow(div, 0, 0, canvas.width, canvas.height, 'rgb(255, 255, 255)');
+
+  const imageURL = canvas.toDataURL('image/png');
+  const link = document.createElement('a');
+  link.href = imageURL;
+  link.download = 'screenshot.png';
+  link.click();
+}
+
+document.getElementById('screenshotButton').addEventListener('click', takeScreenshot);
+      </script>
+    <script>
+        function myFunction() {
+          // Get the text field
+          var copyText = document.getElementById("textInput");
+        
+          // Select the text field
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); // For mobile devices
+        
+          // Copy the text inside the text field
+          navigator.clipboard.writeText(copyText.value);
+          
+          // Alert the copied text
+          alert("Copied the text: " + copyText.value);
+        }
+        </script> 
+    <script>
+        function takeScreenshot() {
+            html2canvas(document.getElementById("output")).then(function(canvas) {
+                var img = canvas.toDataURL('image/png');
+                var link = document.createElement('a');
+                link.href = img;
+                link.download = 'screenshot.png';
+                link.click();
+            });
+        }
+    </script>
+    <h1 id="MyHeading"></h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script>
+        //Select button by id
+        const MyButton = document.getElementById("MyButton");
+        //Add on click listener for button
+        MyButton.addEventListener('click', function() {
+            //Select (h1) heading by id, and then change it's value to (bananas)
+            document.getElementById("MyHeading").innerText = "Thank you !"
+        })
+    </script>
+        <br>
+        <br>
+        <div style="border:solid 5px;">
+            <h1> Emojis list </h1>
+        <p>
+❤🧡💛💚💙💜🤎🖤🤍💔❣💕
+💞💓💗💖💘💝💟💌🎁😁😂
+😃😄😅😆😇😈😉😊😋😌😍
+😎😏😐😑😒😔😕😖😗😘😙	
+😚😛😜😝😞😟😠😡😢😣😤
+😥😦😧😨😩😱😲😳😴😵😶
+😪😫😬😭😮😯😰😷🙁🙂🙃
+🙄🤐🤑🤒🤓🤔🤕🤗🤠🤢🤣
+🤤🤯🥰🥱🥳🥴🥵🥶🥺🧐🤥
+🤧🤨🤩🤪🤫🤭🤮
+        </p>
+        </div>
+        <div>
+        <h2 style="color:black;">this website by youssef ibrahim</h2>
+        </div>
+        </body>
+        </html>
